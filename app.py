@@ -20,8 +20,11 @@ def index():
 
     if request.method == "POST":
         response = request.get_json()
+        print(response)
+
         message_body = response.get("message", {}).get("text", None)
-        send_message(sanitize_body(message_body))
+        if message_body is not None:
+            send_message(sanitize_body(message_body))
 
     return 'Invalid Request'
 
