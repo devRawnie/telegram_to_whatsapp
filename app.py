@@ -54,5 +54,12 @@ def set_webhook():
     return "Registered URL: " + endpoint
 
 
+config = {}
+with open("./config.json", "r") as f:
+    config = json.load(f).get("flask", {})
+
+PORT = config.get("PORT", 5000)
+HOST = config.get("HOST", "0.0.0.0")
+
 if __name__ == '__main__':
-   app.run()
+   app.run(host=HOST, port=PORT)

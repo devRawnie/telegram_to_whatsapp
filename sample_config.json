@@ -10,5 +10,9 @@
         ],
         "WHATSAPP_MESSAGE_TEMPLATE_NAME": "telegram_message",
         "WHATSAPP_AUTHORIZATION_TOKEN": ""
+    },
+    "flask": {
+        "PORT": -1,
+        "HOST": "0.0.0.0"
     }
 }
