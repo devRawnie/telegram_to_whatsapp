@@ -1,0 +1,14 @@
+{
+    "telegram": {
+        "TELEGRAM_BOT_TOKEN": "",
+        "TELEGRAM_WEBHOOK_REGISTRATION_URL": ""
+    },
+    "whatsapp": {
+        "WHATSAPP_PHONE_NUMBER_ID": "",
+        "WHATSAPP_MESSAGING_ENDPOINT": "",
+        "WHATSAPP_TARGET_PHONE_NUMBERS": [
+        ],
+        "WHATSAPP_MESSAGE_TEMPLATE_NAME": "telegram_message",
+        "WHATSAPP_AUTHORIZATION_TOKEN": ""
+    }
+}
