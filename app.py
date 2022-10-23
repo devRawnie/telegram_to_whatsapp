@@ -49,7 +49,7 @@ def set_webhook():
     response = requests.get(REQUEST_URL)
 
     if not response.ok:
-        return "There was an error registering the URL: " + endpoint
+        return "There was an error registering the URL " +  endpoint +  ": <pre>" + response.json() + "</pre>"
 
     return "Registered URL: " + endpoint
 
@@ -62,4 +62,4 @@ PORT = config.get("PORT", 5000)
 HOST = config.get("HOST", "0.0.0.0")
 
 if __name__ == '__main__':
-   app.run(host=HOST, port=PORT)
+   app.run(host=HOST, port=PORT, debug=True)
