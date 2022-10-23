@@ -1,10 +1,19 @@
+import json
+import re
+import requests
+
 from flask import Flask, request
 from whatsapp_handler import send_message
-import requests
-import re
 
-TELEGRAM_BOT_TOKEN  = "5604217550:AAF8mWa6YnsP_Kkshh6Oys3JwNXkHogZfiM"
-TELEGRAM_WEBHOOK_REGISTRATION_URL = "https://api.telegram.org/bot{token}/setWebhook?url={url}"
+config = {}
+with open("./config.json", "r") as f:
+    config = json.load(f).get("telegram", {})
+
+TELEGRAM_BOT_TOKEN = config.get("TELEGRAM_BOT_TOKEN", None)
+if TELEGRAM_BOT_TOKEN is None:
+    exit()
+
+TELEGRAM_WEBHOOK_REGISTRATION_URL = config.get("TELEGRAM_WEBHOOK_REGISTRATION_URL", "https://api.telegram.org/bot{token}/setWebhook?url={url}")
 
 def sanitize_body(text):
     space_regex = re.compile("\s{4, }")
